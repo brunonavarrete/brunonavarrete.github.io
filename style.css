@@ -23,6 +23,8 @@ h3 {
 
 
 #color-code ul {
+	display:-webkit-box;
+	display:-ms-flexbox;
 	display:flex;
 	padding:0;
 	list-style:none;
@@ -30,9 +32,12 @@ h3 {
 
 #color-code ul li {
 	position:relative;
-	flex:1;
+	-webkit-box-flex:1;
+	    -ms-flex:1;
+	        flex:1;
 	opacity:0.5;
 	cursor:pointer;
+	-webkit-transition:all 0.4s;
 	transition:all 0.4s;
 }
 
@@ -56,7 +61,8 @@ h3 {
 	left:50%;
 	border-radius:100%;
 	background-color:#0a0e29;
-	transform:translate(-50%,-50%);
+	-webkit-transform:translate(-50%,-50%);
+	        transform:translate(-50%,-50%);
 }
 
 #color-code ul li[data-badges="html"] span::before {
@@ -85,30 +91,40 @@ h3 {
 	font-size:1em;
     white-space:nowrap;
     /*overflow:hidden;*/
-    transform:translateX(-50%);
+    -webkit-transform:translateX(-50%);
+            transform:translateX(-50%);
 }
 
 #badges > div {
+	display:-webkit-box;
+	display:-ms-flexbox;
 	display:flex;
-	flex-wrap:wrap;
+	-ms-flex-wrap:wrap;
+	    flex-wrap:wrap;
 }
 
 #badges .badge {
-	flex:1;
+	-webkit-box-flex:1;
+	    -ms-flex:1;
+	        flex:1;
 	width:75px;
 	text-align:center;
 }
 
 #badges .badge img {
 	opacity:0.5;
-	filter:grayscale(0.2);
+	-webkit-filter:grayscale(0.2);
+	        filter:grayscale(0.2);
+	-webkit-transition:all 0.3s;
 	transition:all 0.3s;
 }
 
 #badges .badge.active img {
 	opacity:1;
-	filter:grayscale(0);
-	transform:scale(1.1);
+	-webkit-filter:grayscale(0);
+	        filter:grayscale(0);
+	-webkit-transform:scale(1.1);
+	        transform:scale(1.1);
 }
 
 #badge-title {
