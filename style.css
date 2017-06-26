@@ -108,6 +108,10 @@ h3 {
             transform:translateX(-50%) scale(1.3);
 }
 
+#badges {
+	padding-bottom:40px;
+}
+
 #badges > div {
 	display:-webkit-box;
 	display:-ms-flexbox;
