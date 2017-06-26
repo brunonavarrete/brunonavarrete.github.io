@@ -18,7 +18,7 @@
 					badgeClass = 'others';
 				}
 
-				$('#badges > div').append('<div data-badge-title="'+title+'" class="badge '+badgeClass+'" data-type="'+badgeClass+'"><img src="'+val.icon_url+'" alt="'+val.name+'" title="'+title+'"></div>');
+				$('#badges > div').append('<div data-badge-title="'+title+'" class="badge '+badgeClass+' active" data-type="'+badgeClass+'"><img src="'+val.icon_url+'" alt="'+val.name+'" title="'+title+'"></div>');
 
 			});
 		}
