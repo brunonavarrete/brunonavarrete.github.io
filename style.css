@@ -101,6 +101,7 @@ h3 {
 	display:flex;
 	-ms-flex-wrap:wrap;
 	    flex-wrap:wrap;
+	    border:solid 1px red;
 }
 
 #badges .badge {
