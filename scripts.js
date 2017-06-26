@@ -3,7 +3,7 @@
 		function(data){
 			var badges = data.badges;
 			$.each( badges, function( key, val ){
-				var title = val.name + ' &mdash; Earned: ' + val.earned_date;
+				var title = val.name + ' &mdash; Earned: ' + val.earned_date.substring(0, val.earned_date.length-14);
 				var url = val.url;
 				var badgeClass = '';
 				if( url.indexOf('html') >= 0 ){
@@ -27,16 +27,16 @@
 	});
 	$('#color-code ul li').hover(function(){
 		var badges = $(this).data('badges');
-		$('#color-code ul li').removeClass('active');
-		$(this).addClass('active');
-		$('.badge').removeClass('active');
+		$('.badge,#color-code ul li').removeClass('active');
 		$('.badge.'+badges).addClass('active');
+		$(this).addClass('active');
 	});
 	$(document).on('mouseenter','.badge',function(){
 		var title = $(this).attr('data-badge-title');
 		var type = $(this).data('type');
-		$('.badge').removeClass('active');
-		$('.badge.'+type).addClass('active');
+		$('.badge,#color-code ul li').removeClass('active');
+		$('.badge.'+type+',#color-code ul li[data-badges="'+type+'"]').addClass('active');
+
 		$('#badge-title').show().text(title);
 	});
 })();
