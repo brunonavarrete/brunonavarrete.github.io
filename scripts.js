@@ -1,5 +1,5 @@
 !(function(){
-	$.getJSON('http://teamtreehouse.com/brunonavarrete.json',
+	$.getJSON('https://teamtreehouse.com/brunonavarrete.json',
 		function(data){
 			var badges = data.badges;
 			$.each( badges, function( key, val ){
