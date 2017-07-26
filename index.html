@@ -9,16 +9,40 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
   </head>
   
   <body>
-    <header class="container-fluid">
+    <header id="main-header" class="container-fluid">
+    	<script type="text/javascript">
+	    	var header = document.getElementById('main-header');
+	    	var setHeader = function() {
+	    		var rand = Math.floor((Math.random() * 3) + 1);
+	    		switch( rand ){
+	    			case 0:
+	    				var headerClass = 'asuka';
+	    				break;
+	    			case 1:
+	    				var headerClass = 'batman';
+	    				break;
+	    			case 2:
+	    				var headerClass = 'cam';
+	    				break;
+	    			default:
+	    				var headerClass = 'asuka';
+	    				break;
+	    		}
+	    		header.classList.add(headerClass);
+	    	}
+	    	setHeader();
+	    </script>
 	    <div class="text text-center">
 	      	<h1 class="mb-0">Bruno Navarrete</h1>
 	      	<p class="lead">Front-end web developer</p>
 	      	<p class="icons">
 	      		<a href="mailto:bruno.navarreteon@gmail.com" class="mr-3 fa fa-instagram"></a>
 		      	<a href="https://www.pinterest.com.mx/brunonavarrete1/" target="_blank" class="mr-3 fa fa-pinterest"></a>
+		      	<a href="https://github.com/brunonavarrete/" target="_blank" class="mr-3 fa fa-github"></a>
 		      	<a href="https://www.instagram.com/brunonavarrete_dev/" target="_blank" class="fa fa-envelope"></a>
 		    </p>
 	    </div>
@@ -108,10 +132,10 @@
 				</div>
 			</li>
 			<li class="project col-12 col-md-6 mt-3 mt-md-0 mb-md-3 left text-right">
-				<div class="thumb" style="background-image:url('assets/img/horizonlabs.jpg')"></div>
+				<div class="thumb" style="background-image:url('assets/img/sibaritanetworks.jpg')"></div>
 				<div class="text" style="background:linear-gradient(-45deg,rgba(230, 30, 78,1) 25%,rgba(103, 0, 72,0.75));">
 					<div class="helper py-3">
-						<a href="http://www.horizonlabs.mx" target="_blank" class="col mb-2">sibaritanetworks.com</a>
+						<a href="https:/sibaritanetworks.com" target="_blank" class="col mb-2">sibaritanetworks.com</a>
 						<ul class="col icons">
 							<li class="mr-3"><i class="fa fa-html5"></i></li>
 							<li class="mr-3"><i class="fa fa-css3"></i></li>
@@ -178,10 +202,5 @@
 			</ul-->
 		</div>
     </footer>
-
-    <!-- jQuery first, then Tether, then Bootstrap JS. -->
-    <!--script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script-->
   </body>
 </html>

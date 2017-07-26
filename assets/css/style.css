@@ -27,11 +27,25 @@ header {
 	height:100vh;
 	color:#fff;
 	background:rgba(255,127,101);
-	background-image:url('/assets/img/unit02.jpg');
-	background-image:-webkit-gradient(linear, left bottom, left top, from(#fafafa), to(transparent)), url('/assets/img/unit02.jpg');
-	background-image:linear-gradient(0deg, #fafafa 0%, transparent), url('/assets/img/unit02.jpg');
+	background-image:url('/assets/img/backgrounds/unit02.jpg');
+	background-image:-webkit-gradient(linear, left bottom, left top, from(#fafafa), to(transparent)), url('/assets/img/backgrounds/unit02.jpg');
+	background-image:linear-gradient(0deg, #fafafa 0%, transparent), url('/assets/img/backgrounds/unit02.jpg');
 	background-size:cover;
 	background-position:bottom center;
+}
+
+header.batman {
+	background:rgba(255,127,101);
+	background-image:url('/assets/img/backgrounds/batman.jpg');
+	background-image:-webkit-gradient(linear, left bottom, left top, from(#fafafa), to(transparent)), url('/assets/img/backgrounds/batman.jpg');
+	background-image:linear-gradient(0deg, #fafafa 0%, transparent), url('/assets/img/backgrounds/batman.jpg');
+}
+
+header.cam {
+	background:rgba(255,127,101);
+	background-image:url('/assets/img/backgrounds/cam.jpg');
+	background-image:-webkit-gradient(linear, left bottom, left top, from(#fafafa), to(transparent)), url('/assets/img/backgrounds/cam.jpg');
+	background-image:linear-gradient(0deg, #fafafa 0%, transparent), url('/assets/img/backgrounds/cam.jpg');
 }
 
 header > .text {
@@ -204,7 +218,17 @@ header .icons a {
 		height:100%;
 		top:0;
 		left:0;
-		background-image:url('/assets/img/unit02.jpg');
+		background-image:url('/assets/img/backgrounds/unit02.jpg');
+	}
+
+	header.batman {
+		background-image:url('/assets/img/backgrounds/batman.jpg');
+		background-position:right center;
+	}
+
+	header.cam {
+		background-image:url('/assets/img/backgrounds/cam.jpg');
+		background-position:right center;
 	}
 
 	main.container-fluid {
