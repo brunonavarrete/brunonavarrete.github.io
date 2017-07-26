@@ -9,8 +9,8 @@ pinkish:#D0A3A3;
 
 */
 
-a* {
-	text-decoration: none;
+a {
+	text-decoration: none!important;
 }
 
 body {
@@ -225,7 +225,7 @@ header .icons a {
 }
 
 @media screen and (min-width:1440px){
-	header.container-fluid,main.container-fluid {
+	header.container-fluid,main.container-fluid,footer.container-fluid {
 		width:50%;
 	}
 }
