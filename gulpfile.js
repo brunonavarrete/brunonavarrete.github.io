@@ -53,7 +53,7 @@ const opts = {
 		gulp.task('default', gulp.series( () => {
 			// serve
 				browserSync.init({
-					proxy:'portfolio.dev'
+					proxy:'brunonavarrete.github.io.dev/'
 				});
 			// watch
 				gulp.watch('*.html', gulp.series('reload') );

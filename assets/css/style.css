@@ -9,6 +9,10 @@ pinkish:#D0A3A3;
 
 */
 
+a* {
+	text-decoration: none;
+}
+
 body {
 	font-family:'Merriweather', sans-serif;
 	background-color:#fafafa;
@@ -60,6 +64,10 @@ header .icons a {
 }
 
 /* projects */
+	main {
+		padding-bottom:70px;
+	}
+
 	main h2 {
 		font-family:'Montserrat',sans-serif;
 		font-weight:700;
@@ -69,6 +77,10 @@ header .icons a {
 	
 	.project {
 		height:200px;
+	}
+
+	.project.vertical {
+		height:400px;
 	}
 	
 	.project:nth-child(1) {
@@ -81,6 +93,7 @@ header .icons a {
 		left:0;
 		right:0;
 		bottom:0;
+		border-radius:4px;
 		background-size:cover;
 		background-position:top center;
 	}
@@ -92,9 +105,9 @@ header .icons a {
 		right:0;
 		bottom:0;
 		color:#fff;
-		background:linear-gradient(-45deg,rgba(255, 87, 34, 1) 25%,rgba(255,255,0,0.75));
+		border-radius:4px;
 		-webkit-box-shadow:3px 3px 10px rgba(0,0,0,0.25);
-		        box-shadow:3px 3px 10px rgba(0,0,0,0.25)
+		        box-shadow:3px 3px 10px rgba(0,0,0,0.25);
 	}
 
 	.project .text .helper {
@@ -133,15 +146,29 @@ header .icons a {
 		content:'';
 	}
 
+/* footer */
+	footer.container-fluid {
+		position:fixed;
+		width:100%;
+		left:0;
+		bottom:0;
+		background-color:#edeff0;
+		-webkit-box-shadow:1px -3px 5px rgba(0,0,0,0.2);
+		        box-shadow:1px -3px 5px rgba(0,0,0,0.2);
+	}
+
+	#treehouse {
+		color:#64ce83;
+	}
+
+	#treehouse img {
+		width:35px;
+		height:auto;
+	}
+
 @media screen and (min-width:350px){
 	header h1 {
 		font-size:2rem;
-	}
-}
-
-@media screen and (min-height:800px){
-	header {
-		height:60vh;
 	}
 }
 
@@ -150,11 +177,20 @@ header .icons a {
 		height:200px;
 	}
 
-	.project:nth-child(odd) .thumb,.project:nth-child(odd) .text {
+	.project.full .thumb,.project.full .text {
+		left:0;
+		right:0;
+	}
+
+	.project.full .thumb {
+		background-position:center;
+	}
+
+	.project.left .thumb,.project.left .text {
 		right:7.5px;
 	}
 
-	.project:nth-child(even) .thumb,.project:nth-child(even) .text {
+	.project.right .thumb,.project.right .text {
 		left:7.5px;
 	}
 }
@@ -172,8 +208,37 @@ header .icons a {
 	main.container-fluid {
 		position:fixed;
 		width:55%;
-		height:100%;
+		height:calc(100% - 70px);
 		top:0;
+		left:initial;
 		right:0;
+		padding-bottom:0;
+		overflow-y:auto;
+	}
+
+	/* footer */
+		footer.container-fluid {
+			width:55%;
+			left:initial;
+			right:0;
+		}
+}
+
+@media screen and (min-width:1440px){
+	header.container-fluid,main.container-fluid {
+		width:50%;
+	}
+}
+
+@media screen and (min-height:800px){
+	header {
+		height:60vh;
+	}
+	.project {
+		height:300px;
+	}
+
+	.project.vertical {
+		height:600px;
 	}
 }
