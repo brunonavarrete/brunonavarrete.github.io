@@ -34,8 +34,6 @@ header {
 	background-position:bottom center;
 }
 
-
-
 header > .text {
 	position:absolute;
 	width:100%;
@@ -136,6 +134,10 @@ header .icons a {
 
 	.project .other li {
 		font-size:0.7rem;
+	}
+
+	.project .other li a {
+		font-size:1em;
 	}
 
 	.project .other li::after {
