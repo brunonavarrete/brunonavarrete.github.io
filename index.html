@@ -15,7 +15,7 @@
   <body>
     <header id="main-header" class="container-fluid">
     	<div id="weather">
-    		<p class="px-3 py-1 text-right"></p>
+    		<p class="px-3 py-2 text-right"></p>
     	</div>
     	<script type="text/javascript">
 	    	// var header = document.getElementById('main-header');
@@ -195,8 +195,8 @@
     	//!(function(){
     		function timeOfDay( currentHour ){
 		    	var partOfDay;
-				if (currentHour > 1 && currentHour < 5) {
-					partOfDay = 'Late Night';
+				if (currentHour > 12 && currentHour < 5) {
+					partOfDay = 'Late night';
 				} else if (currentHour > 5 && currentHour < 10) {
 					partOfDay = 'Morning';
 				} else if (currentHour > 10 && currentHour < 16) {
@@ -209,17 +209,17 @@
 				return partOfDay;
 			}
 
-			function loadWeather(location) {
+			function loadWeather( location, blocked ) {
 				// Docs at http://simpleweatherjs.com
 				$.simpleWeather({ 
 				    location: location,
 				    unit: 'c',
-				    success: function(weather) {
+				    success: function( weather ) {
 				    	var textString = weather.text.toLowerCase();
 				    	var typeOfWeather;
 
 				    	if( textString.indexOf('sun') >= 0 ){
-				    		typeOfWeather = 'sun';
+				    		typeOfWeather = 'clear';
 				    	} else if( textString.indexOf('cloud') >= 0 ) {
 				    		typeOfWeather = 'cloud';
 				    	} else if( textString.indexOf('snow') >= 0 ) {
@@ -232,7 +232,7 @@
 				    	var temp = ( weather.country !== 'United States' ) ? weather.temp + '&deg; ' + weather.units.temp : weather.alt.temp + ' ' + weather.alt.unit;
 
 				    	console.log(weather);
-				    	customizeSite( partOfDay,typeOfWeather,temp );
+				    	customizeSite( partOfDay,typeOfWeather,temp,blocked,weather.text );
 				    },
 				    error: function(error) {
 				      $("#weather").html('<p>'+error+'</p>');
@@ -240,47 +240,102 @@
 				});
 			}
 
-			function customizeSite( partOfDay, weather, temp ){
+			function customizeSite( partOfDay, weather, temp, blocked, weatherText ){
 				var text,icon;
-				var bodyClass = partOfDay.toLowerCase();
-				switch( partOfDay ) {
-					case 'Afternoon':
-						if( weather == 'sun' ){
-							icon = 34;
-							text = 'Beautiful day outside, go out there and play!';
-						} else if( weather == 'cloud' ){
-							icon = 26;
-							text = 'Wow, I hope you brought your umbrella...';
-						} else if( weather == 'snow' ){
-							icon = 42;
-							text = 'Better sit down for a while :(';
-						} else {
-							icon = 40;
-							text = 'Wow, I hope you brought your umbrella...';
-						}
-						break;
-					case 'Late Night':
-						icon = 33;
-						text = 'Wow, it\'s late! You should really go to sleep!';
-						break;
+				var bodyClass = partOfDay.toLowerCase().replace(' ','_');
+				if( blocked ){
+					if( weather == 'clear' ){
+						icon = 34;
+					} else if( weather == 'cloud' ){
+						icon = 26;
+					} else if( weather == 'snow' ){
+						icon = 42;
+					} else { // any type of rain
+						icon = 40;
+					}
+					text = 'It\'s ' + weatherText.toLowerCase() +  ' over here in Querétaro, México';
+				} else {
+					switch( partOfDay ) {
+						case 'Morning':
+							if( weather == 'clear' ){
+								icon = 34;
+								text = 'Sun\'s shining... Grab some coffee and off to work!';
+							} else if( weather == 'cloud' ){
+								icon = 26;
+								text = 'Hey! Don\'t forget your umbrella ;)';
+							} else if( weather == 'snow' ){
+								icon = 42;
+								text = 'I guess we\'ll skip work today :D';
+							} else { // any type of rain
+								icon = 40;
+								text = 'Hey! Don\'t forget your umbrella ;)';
+							}
+							break;
+						case 'Afternoon':
+							if( weather == 'clear' ){
+								icon = 34;
+								text = 'Beautiful day, leave this alone and go outside to play!';
+							} else if( weather == 'cloud' ){
+								icon = 26;
+								text = 'I hope you brought your umbrella...';
+							} else if( weather == 'snow' ){
+								icon = 42;
+								text = 'Better sit down for a while :(';
+							} else { // any type of rain
+								icon = 40;
+								text = 'I hope you brought your umbrella...';
+							}
+							break;
+						case 'Late afternoon':
+							if( weather == 'clear' ){
+								icon = 34;
+								text = 'Well done today... let\'s go get some rest :)';
+							} else if( weather == 'cloud' ){
+								icon = 26;
+								text = 'I hope you brought your umbrella...';
+							} else if( weather == 'snow' ){
+								icon = 42;
+								text = 'Better sit down for a while :(';
+							} else { // any type of rain
+								icon = 40;
+								text = 'I hope you brought your umbrella...';
+							}
+							break;
+						case 'Night':
+							if( weather == 'clear' ){
+								icon = 33;
+								text = 'Got any plans? It\'s clear outside :)';
+							} else if( weather == 'cloud' ){
+								icon = 26;
+								text = 'Those clouds call for some take out + Netflix :P';
+							} else if( weather == 'snow' ){
+								icon = 42;
+								text = 'How about some hot cocoa? ^ ^';
+							} else { // any type of rain
+								icon = 40;
+								text = 'Rain outside making you sleepy? . z Z';
+							}
+							break;
+						case 'Late night':
+							icon = 33;
+							text = 'Wow, you should really get some sleep... . z Z';
+							break;
+					}
 				}
-				
 				var html = text + '<span><i class="icon-' + icon + '"></i>' + temp + '</span>';
 
 				$("#weather p").html(html);
 				$('body').addClass( bodyClass + ' ' + weather );
-
-				//console.log(weather);
 			}
 
 			navigator.geolocation.getCurrentPosition( 
 				function( position ) {
-				    loadWeather( position.coords.latitude + ',' + position.coords.longitude, position.country); // Where in the world are you? 
+				    loadWeather( position.coords.latitude + ',' + position.coords.longitude, undefined ); // Where in the world are you? 
 				    console.log(position);
 				},
 				function( error ){
 					if (error.code == error.PERMISSION_DENIED)
-					loadWeather('Glendale');
+					loadWeather( 'Querétaro',1 );
 				}
 			);
 		//})();
