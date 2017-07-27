@@ -1,8 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Merriweather:300,300i');
 
-/* #ff7f65 
+/* #ff7f65 	rgb(255,127,101)
 
-purply:#4B4666;
+dark orange: #ee2800 rgb(238,40,0);
+
+purply:#4B4666 rgb(75,70,102);
 redish:#681E1B;
 yellowy:#FFF7DE;
 pinkish:#D0A3A3;
@@ -17,6 +19,7 @@ body {
 	font-family:'Merriweather', sans-serif;
 	background-color:#fafafa;
 }
+
 
 ul {
 	list-style:none;
@@ -119,8 +122,31 @@ header .icons a {
 		bottom:0;
 		color:#fff;
 		border-radius:4px;
-		-webkit-box-shadow:3px 3px 10px rgba(0,0,0,0.25);
-		        box-shadow:3px 3px 10px rgba(0,0,0,0.25);
+		-webkit-box-shadow:1px 3px 10px rgba(0,0,0,0.25);
+		        box-shadow:1px 3px 10px rgba(0,0,0,0.25);
+		transition:box-shadow 0.2s ease-out;
+	}
+
+	.project:hover .text {
+		-webkit-box-shadow:1px 6px 20px rgba(0,0,0,0.5);
+		        box-shadow:1px 6px 20px rgba(0,0,0,0.5);
+		transition:box-shadow 0.2s ease-in;
+	}
+
+	.project .text::before {
+		content:'';
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
+		border-radius:4px;
+		background: rgba(46,164,85,0.4); /* For browsers that do not support gradients */
+		background: -webkit-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(130deg, transparent, #681E1B 75% ); /* Standard syntax */
+		transition:opacity 0.2s ease-out;
 	}
 
 	.project .text .helper {
@@ -128,6 +154,13 @@ header .icons a {
 		left:0;
 		right:0;
 		bottom:0;
+		z-index:2;
+		transition:opacity 0.2s ease-out;
+	}
+
+	.project:hover .text::before,.project:hover .text .helper {
+		opacity:0;
+		transition:opacity 0.2s ease-in;
 	}
 
 	.project .text a {
