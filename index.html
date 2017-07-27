@@ -9,32 +9,35 @@
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/font-awesome-4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-
+    <link rel="stylesheet" href="assets/css/weather.css">
   </head>
   
   <body>
     <header id="main-header" class="container-fluid">
+    	<div id="weather">
+    		<p class="px-3 py-1 text-right"></p>
+    	</div>
     	<script type="text/javascript">
-	    	var header = document.getElementById('main-header');
-	    	var setHeader = function() {
-	    		var rand = Math.floor((Math.random() * 3) + 1);
-	    		switch( rand ){
-	    			case 0:
-	    				var headerClass = 'asuka';
-	    				break;
-	    			case 1:
-	    				var headerClass = 'batman';
-	    				break;
-	    			case 2:
-	    				var headerClass = 'cam';
-	    				break;
-	    			default:
-	    				var headerClass = 'asuka';
-	    				break;
-	    		}
-	    		header.classList.add(headerClass);
-	    	}
-	    	setHeader();
+	    	// var header = document.getElementById('main-header');
+	    	// var setHeader = function() {
+	    	// 	var rand = Math.floor((Math.random() * 3) + 1);
+	    	// 	switch( rand ){
+	    	// 		case 0:
+	    	// 			var headerClass = 'asuka';
+	    	// 			break;
+	    	// 		case 1:
+	    	// 			var headerClass = 'batman';
+	    	// 			break;
+	    	// 		case 2:
+	    	// 			var headerClass = 'cam';
+	    	// 			break;
+	    	// 		default:
+	    	// 			var headerClass = 'asuka';
+	    	// 			break;
+	    	// 	}
+	    	// 	header.classList.add(headerClass);
+	    	// }
+	    	// setHeader();
 	    </script>
 	    <div class="text text-center">
 	      	<h1 class="mb-0">Bruno Navarrete</h1>
@@ -182,25 +185,106 @@
 				<img src="assets/img/treehouse.png">
 				<span class="ml-2">treehouse/brunonavarrete</span>
 			</a>
-			<!--ul class="col">
-				<li>
-					<span>HTML</span>
-					<span>_________________</span>
-				</li>
-				<li>
-					<span>CSS</span>
-					<span>_________________</span>
-				</li>
-				<li>
-					<span>Javascript</span>
-					<span>_________________</span>
-				</li>
-				<li>
-					<span>Databases</span>
-					<span>_________________</span>
-				</li>
-			</ul-->
 		</div>
     </footer>
+
+    <script type="text/javascript" src="assets/js/jquery-2.0.0.min.js"></script>
+    <script type="text/javascript" src="assets/js/jquery.simpleWeather.min.js"></script>
+    <script type="text/javascript">
+
+    	//!(function(){
+    		function timeOfDay( currentHour ){
+		    	var partOfDay;
+				if (currentHour > 1 && currentHour < 5) {
+					partOfDay = 'Late Night';
+				} else if (currentHour > 5 && currentHour < 10) {
+					partOfDay = 'Morning';
+				} else if (currentHour > 10 && currentHour < 16) {
+					partOfDay = 'Afternoon';
+				} else if (currentHour > 10 && currentHour < 16) {
+					partOfDay = 'Late afternoon';
+				} else {
+					partOfDay = 'Night';
+				}
+				return partOfDay;
+			}
+
+			function loadWeather(location) {
+				// Docs at http://simpleweatherjs.com
+				$.simpleWeather({ 
+				    location: location,
+				    unit: 'c',
+				    success: function(weather) {
+				    	var textString = weather.text.toLowerCase();
+				    	var typeOfWeather;
+
+				    	if( textString.indexOf('sun') >= 0 ){
+				    		typeOfWeather = 'sun';
+				    	} else if( textString.indexOf('cloud') >= 0 ) {
+				    		typeOfWeather = 'cloud';
+				    	} else if( textString.indexOf('snow') >= 0 ) {
+				    		typeOfWeather = 'snow';
+				    	} else {
+				    		typeOfWeather = 'rain';
+				    	}
+
+				    	var partOfDay = timeOfDay( new Date().getHours() );
+				    	var temp = ( weather.country !== 'United States' ) ? weather.temp + '&deg; ' + weather.units.temp : weather.alt.temp + ' ' + weather.alt.unit;
+
+				    	console.log(weather);
+				    	customizeSite( partOfDay,typeOfWeather,temp );
+				    },
+				    error: function(error) {
+				      $("#weather").html('<p>'+error+'</p>');
+				    }
+				});
+			}
+
+			function customizeSite( partOfDay, weather, temp ){
+				var text,icon;
+				var bodyClass = partOfDay.toLowerCase();
+				switch( partOfDay ) {
+					case 'Afternoon':
+						if( weather == 'sun' ){
+							icon = 34;
+							text = 'Beautiful day outside, go out there and play!';
+						} else if( weather == 'cloud' ){
+							icon = 26;
+							text = 'Wow, I hope you brought your umbrella...';
+						} else if( weather == 'snow' ){
+							icon = 42;
+							text = 'Better sit down for a while :(';
+						} else {
+							icon = 40;
+							text = 'Wow, I hope you brought your umbrella...';
+						}
+						break;
+					case 'Late Night':
+						icon = 33;
+						text = 'Wow, it\'s late! You should really go to sleep!';
+						break;
+				}
+				
+				var html = text + '<span><i class="icon-' + icon + '"></i>' + temp + '</span>';
+
+				$("#weather p").html(html);
+				$('body').addClass( bodyClass + ' ' + weather );
+
+				//console.log(weather);
+			}
+
+			navigator.geolocation.getCurrentPosition( 
+				function( position ) {
+				    loadWeather( position.coords.latitude + ',' + position.coords.longitude, position.country); // Where in the world are you? 
+				    console.log(position);
+				},
+				function( error ){
+					if (error.code == error.PERMISSION_DENIED)
+					loadWeather('Glendale');
+				}
+			);
+		//})();
+
+    </script>
   </body>
 </html>
