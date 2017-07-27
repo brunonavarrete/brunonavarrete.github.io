@@ -95,8 +95,13 @@ header .icons a {
 		height:200px;
 	}
 
-	.project.vertical {
-		height:400px;
+	.project > a {
+		display:block;
+		position:absolute;
+		top:0;
+		left:0;
+		right:0;
+		bottom:0;
 	}
 	
 	.project:nth-child(1) {
@@ -163,7 +168,7 @@ header .icons a {
 		transition:opacity 0.2s ease-in;
 	}
 
-	.project .text a {
+	.project .text h3 {
 		color:#fff;
 		font-size:1.3rem;
 	}
@@ -189,7 +194,7 @@ header .icons a {
 	}
 
 	.project .other li::after {
-		content:', ';
+		content:',\00a0';
 	}
 
 	.project .other li:nth-last-child(1)::after {
@@ -236,11 +241,11 @@ header .icons a {
 		background-position:center;
 	}
 
-	.project.left .thumb,.project.left .text {
+	.project:nth-child(odd) .thumb,.project:nth-child(odd) .text {
 		right:7.5px;
 	}
 
-	.project.right .thumb,.project.right .text {
+	.project:nth-child(even) .thumb,.project:nth-child(even) .text {
 		left:7.5px;
 	}
 }

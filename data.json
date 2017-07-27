@@ -1,0 +1,37 @@
+[
+	{
+		"name": "thephoto.se",
+		"thumbnail": "assets/img/thephoto.jpg",
+		"icons": ["html5","css3","wordpress"],
+		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
+		"link": "http://www.thephoto.se"
+	},
+	{
+		"name": "CDMX (360º video test)",
+		"thumbnail": "assets/img/360video.jpg",
+		"icons": ["html5","css3","github"],
+		"other": ["Javascript","jQuery","HTML5 video","360º video (kaleidoscope)"],
+		"link": "https://brunonavarrete.github.io/360/"
+	},
+	{
+		"name": "turismosibarita.com",
+		"thumbnail": "assets/img/turismosibarita.jpg",
+		"icons": ["html5","css3","git"],
+		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","JSON","PHP","Laravel / Blade"],
+		"link": "https://turismosibarita.com"
+	},
+	{
+		"name": "horizonlabs.mx",
+		"thumbnail": "assets/img/horizonlabs.jpg",
+		"icons": ["html5","css3","wordpress"],
+		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
+		"link": "http://www.horizonlabs.mx"
+	},
+	{
+		"name": "sibaritanetworks.com",
+		"thumbnail": "assets/img/sibaritanetworks.jpg",
+		"icons": ["html5","css3","wordpress"],
+		"other": ["Bootstrap","Javascript","jQuery","AJAX","PHP","Google Maps"],
+		"link": "https:/sibaritanetworks.com"
+	}
+]
