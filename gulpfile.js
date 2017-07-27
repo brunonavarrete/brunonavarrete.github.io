@@ -57,6 +57,7 @@ const opts = {
 				});
 			// watch
 				gulp.watch('*.html', gulp.series('reload') );
+				gulp.watch('*.json', gulp.series('reload') );
 				// gulp.watch(opts.src + '/js/main.js', gulp.series('reload') );
 				gulp.watch(opts.src + '/css/*.css', gulp.series('reload') );
 		}));
