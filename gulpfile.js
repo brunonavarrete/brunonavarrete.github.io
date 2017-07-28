@@ -1,4 +1,5 @@
 const 	gulp = require('gulp'), // -v 4 alpha
+		concat = require('gulp-concat'),
 		uglify = require('gulp-uglify'),
 		csso = require('gulp-csso'),
 		maps = require('gulp-sourcemaps'),
@@ -13,13 +14,25 @@ const opts = {
 
 // Build pipeline
 	// scripts
-		gulp.task('scripts',gulp.series( () => {
-			return gulp.src(`${opts.src}/js/main.js`)
+		gulp.task('concatScripts',gulp.series( () => {
+			return gulp.src([
+				opts.src+'/js/jquery-2.0.0.min.js',
+				opts.src+'/js/jquery.simpleWeather.min.js',
+				opts.src+'/js/main.js'
+				])
+			.pipe(maps.init())
+			.pipe(concat('all.js'))
+			.pipe(maps.write('./'))
+			.pipe(gulp.dest(`${opts.src}/js`))
+		}));
+
+		gulp.task('scripts',gulp.series( 'concatScripts', () => {
+			return gulp.src(opts.src+'/js/all.js')
 			.pipe(maps.init())
 			.pipe(uglify())
-			.pipe(rename('main.min.js'))
+			.pipe(rename('all.min.js'))
 			.pipe(maps.write('./'))
-			.pipe(gulp.dest(`${opts.dist}/js`))
+			.pipe(gulp.dest(`${opts.src}/js`))
 		}));
 
 	// styles	
@@ -35,8 +48,8 @@ const opts = {
 	// clean
 		gulp.task('clean', gulp.series( () => {
 			return del([
-				`${opts.dist}/js/main*`,
-				`${opts.dist}/css/styles*`,
+				`${opts.src}/js/all*`,
+				//`${opts.dist}/css/styles*`,
 				]);
 		}));
 
@@ -58,6 +71,6 @@ const opts = {
 			// watch
 				gulp.watch('*.html', gulp.series('reload') );
 				gulp.watch('*.json', gulp.series('reload') );
-				// gulp.watch(opts.src + '/js/main.js', gulp.series('reload') );
+				gulp.watch(opts.src + '/js/main.js', gulp.series('clean','scripts','reload') );
 				gulp.watch(opts.src + '/css/*.css', gulp.series('reload') );
 		}));
