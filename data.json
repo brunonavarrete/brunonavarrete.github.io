@@ -1,6 +1,6 @@
 [
 	{
-		"name": "thephoto.se",
+		"name": "The Photo",
 		"thumbnail": "assets/img/thephoto.jpg",
 		"icons": ["html5","css3","wordpress"],
 		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
@@ -14,21 +14,21 @@
 		"link": "https://brunonavarrete.github.io/360/"
 	},
 	{
-		"name": "turismosibarita.com",
+		"name": "Turismo Sibarita",
 		"thumbnail": "assets/img/turismosibarita.jpg",
 		"icons": ["html5","css3","git"],
 		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","JSON","PHP","Laravel / Blade"],
 		"link": "https://turismosibarita.com"
 	},
 	{
-		"name": "horizonlabs.mx",
+		"name": "Horizon Labs",
 		"thumbnail": "assets/img/horizonlabs.jpg",
 		"icons": ["html5","css3","wordpress"],
 		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
 		"link": "http://www.horizonlabs.mx"
 	},
 	{
-		"name": "sibaritanetworks.com",
+		"name": "Sibarita Networks",
 		"thumbnail": "assets/img/sibaritanetworks.jpg",
 		"icons": ["html5","css3","wordpress"],
 		"other": ["Bootstrap","Javascript","jQuery","AJAX","PHP","Google Maps"],
