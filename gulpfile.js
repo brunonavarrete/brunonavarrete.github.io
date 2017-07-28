@@ -2,6 +2,7 @@ const 	gulp = require('gulp'), // -v 4 alpha
 		concat = require('gulp-concat'),
 		uglify = require('gulp-uglify'),
 		csso = require('gulp-csso'),
+		concatCss = require('gulp-concat-css'),
 		maps = require('gulp-sourcemaps'),
 		rename = require('gulp-rename'),
 		browserSync = require('browser-sync').create(),
@@ -35,21 +36,30 @@ const opts = {
 			.pipe(gulp.dest(`${opts.src}/js`))
 		}));
 
-	// styles	
-		gulp.task('styles', gulp.series( () => {
-			return gulp.src(opts.src+'/css/style.css')
+	// styles
+		gulp.task('concatStyles',gulp.series( () => {
+			return gulp.src([
+				opts.src+'/bootstrap/css/bootstrap.min.css',
+				opts.src+'/css/style.css',
+				opts.src+'/css/weather.css'
+				])
+			.pipe(concatCss('all.css'))
+			.pipe(gulp.dest(`${opts.src}/css`))
+		}));	
+		gulp.task('styles', gulp.series('concatStyles', () => {
+			return gulp.src(opts.src+'/css/all.css')
  			.pipe(maps.init())
 			.pipe(csso())
-			.pipe(rename('styles.min.css'))
+			.pipe(rename('all.min.css'))
  			.pipe(maps.write('./'))
-			.pipe(gulp.dest(`${opts.dist}/css`))
+			.pipe(gulp.dest(`${opts.src}/css`))
 		}));
 
 	// clean
 		gulp.task('clean', gulp.series( () => {
 			return del([
 				`${opts.src}/js/all*`,
-				//`${opts.dist}/css/styles*`,
+				`${opts.src}/css/all*`,
 				]);
 		}));
 
@@ -72,5 +82,5 @@ const opts = {
 				gulp.watch('*.html', gulp.series('reload') );
 				gulp.watch('*.json', gulp.series('reload') );
 				gulp.watch(opts.src + '/js/main.js', gulp.series('clean','scripts','reload') );
-				gulp.watch(opts.src + '/css/*.css', gulp.series('reload') );
+				gulp.watch(opts.src + '/css/style.css', gulp.series('clean','styles','reload') );
 		}));
