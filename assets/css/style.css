@@ -147,10 +147,10 @@ header .icons a {
 		bottom:0;
 		border-radius:4px;
 		background: rgba(46,164,85,0.4); /* For browsers that do not support gradients */
-		background: -webkit-linear-gradient(130deg, transparent, #4EA600 75% ); /* For Safari 5.1 to 6.0 */
-		background: -o-linear-gradient(130deg, transparent, #4EA600 75% ); /* For Opera 11.1 to 12.0 */
-		background: -moz-linear-gradient(130deg, transparent, #4EA600 75% ); /* For Firefox 3.6 to 15 */
-		background: linear-gradient(130deg, transparent, #4EA600 75% ); /* Standard syntax */
+		background: -webkit-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Safari 5.1 to 6.0 */
+		background: -o-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Opera 11.1 to 12.0 */
+		background: -moz-linear-gradient(130deg, transparent, #681E1B 75% ); /* For Firefox 3.6 to 15 */
+		background: linear-gradient(130deg, transparent, #681E1B 75% ); /* Standard syntax */
 		transition:opacity 0.2s ease-out;
 	}
 
