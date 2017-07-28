@@ -7,6 +7,13 @@
 		"link": "http://www.thephoto.se"
 	},
 	{
+		"name": "Recipes (Angular JS)",
+		"thumbnail": "assets/img/thephoto.jpg",
+		"icons": [],
+		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
+		"link": "http://www.thephoto.se"
+	},
+	{
 		"name": "CDMX (360º video test)",
 		"thumbnail": "assets/img/360video.jpg",
 		"icons": ["html5","css3","github"],
