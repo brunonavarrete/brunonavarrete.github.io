@@ -7,9 +7,16 @@
 		"link": "http://www.thephoto.se"
 	},
 	{
+		"name": "Recipes (Angular JS)",
+		"thumbnail": "assets/img/angular.jpg",
+		"icons": ["git","github"],
+		"other": ["Javascript","Angular JS"],
+		"link": "https://github.com/brunonavarrete/Project-9-Recipe-Angular-SPA"
+	},
+	{
 		"name": "CDMX (360º video test)",
 		"thumbnail": "assets/img/360video.jpg",
-		"icons": ["html5","css3","github"],
+		"icons": ["html5","css3","git","github"],
 		"other": ["Javascript","jQuery","HTML5 video","360º video (kaleidoscope)"],
 		"link": "https://brunonavarrete.github.io/360/"
 	},
