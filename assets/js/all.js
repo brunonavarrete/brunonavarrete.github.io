@@ -12,7 +12,6 @@ if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).
 		$.ajax({
 			url: src,
 			success: function(data){
-				console.log(data);
 				$.each(data,function( key,val ){
 					var item = data[key];
 					var html = '';
@@ -39,7 +38,6 @@ if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).
 					html += '</a>';
 					html += '</li>';
 					$('.projects').append(html);
-					//$('.projects .icons').html(html_icons);
 				});
 			},
 			error: function(error){
@@ -88,9 +86,14 @@ if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).
 		    	var partOfDay = timeOfDay( new Date().getHours() );
 		    	var temp = ( weather.country !== 'United States' ) ? weather.temp + '&deg; ' + weather.units.temp : weather.alt.temp + ' ' + weather.alt.unit;
 
-		    	//console.log(weather);
-		    	//console.log(partOfDay);
 		    	customizeSite( partOfDay,typeOfWeather,temp,blocked,weather.text );
+		    	if( blocked ){
+		    		console.log('Hey! Here\'s the weather for Querétaro, México brought to you by http://simpleweatherjs.com (allow the site to access your location to see YOUR city\'s):');
+		    		console.log(weather);
+		    	} else {
+		    		console.log('Hey! Here\'s the weather in your city ('+weather.city+') brought to you by http://simpleweatherjs.com :');
+		    		console.log(weather);
+				}		    		
 		    },
 		    error: function(error) {
 		      $("#weather").html('<p>'+error+'</p>');
@@ -192,7 +195,7 @@ if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).
 		},
 		function( error ){
 			if (error.code == error.PERMISSION_DENIED)
-			loadWeather( 'Querétaro', 1 );
+			loadWeather( 'Santiago de Queretaro', 1 );
 		}
 	);
 })();
