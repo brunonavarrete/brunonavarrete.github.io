@@ -7,13 +7,6 @@
 		"link": "http://www.thephoto.se"
 	},
 	{
-		"name": "Recipes (Angular JS)",
-		"thumbnail": "assets/img/angular.jpg",
-		"icons": ["git","github"],
-		"other": ["Javascript","Angular JS"],
-		"link": "https://github.com/brunonavarrete/Project-9-Recipe-Angular-SPA"
-	},
-	{
 		"name": "CDMX (360º video test)",
 		"thumbnail": "assets/img/360video.jpg",
 		"icons": ["html5","css3","git","github"],
@@ -40,5 +33,12 @@
 		"icons": ["html5","css3","wordpress"],
 		"other": ["Bootstrap","Javascript","jQuery","AJAX","PHP","Google Maps"],
 		"link": "https://sibaritanetworks.com"
+	},
+	{
+		"name": "Recipes (Angular JS)",
+		"thumbnail": "assets/img/angular.jpg",
+		"icons": ["git","github"],
+		"other": ["Javascript","Angular JS"],
+		"link": "https://github.com/brunonavarrete/Project-9-Recipe-Angular-SPA"
 	}
 ]
