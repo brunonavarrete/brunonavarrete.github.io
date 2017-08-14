@@ -198,5 +198,13 @@ if(x.isFunction(n))while(r=o[i++])"+"===r[0]?(r=r.slice(1)||"*",(e[r]=e[r]||[]).
 			loadWeather( 'Santiago de Queretaro', 1 );
 		}
 	);
+
+	// Analytics
+		$(document).on('click','.project',function(){
+			var label = $(this).find('h3').text();
+			ga('send', 'event', 'Project', 'click', label);
+			console.log(label);
+			
+		});
 })();
 //# sourceMappingURL=all.js.map

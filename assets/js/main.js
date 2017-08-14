@@ -190,4 +190,12 @@
 			loadWeather( 'Santiago de Queretaro', 1 );
 		}
 	);
+
+	// Analytics
+		$(document).on('click','.project',function(){
+			var label = $(this).find('h3').text();
+			ga('send', 'event', 'Project', 'click', label);
+			console.log(label);
+			
+		});
 })();
