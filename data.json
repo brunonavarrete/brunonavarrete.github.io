@@ -1,5 +1,26 @@
 [
 	{
+		"name": "Quotes MEAN App",
+		"thumbnail": "assets/img/mean-stack.png",
+		"icons": ["html5","css3","git","github"],
+		"other": ["MEAN Stack","Rest API","Heroku","Bootstrap 4"],
+		"link": "https://quotespiration-final-project.herokuapp.com/"
+	},
+	{
+		"name": "Recipes (Angular JS)",
+		"thumbnail": "assets/img/angular.jpg",
+		"icons": ["git","github"],
+		"other": ["Javascript","Angular JS"],
+		"link": "https://github.com/brunonavarrete/Project-9-Recipe-Angular-SPA"
+	},
+	{
+		"name": "Horizon Labs",
+		"thumbnail": "assets/img/horizonlabs.jpg",
+		"icons": ["html5","css3","wordpress"],
+		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
+		"link": "http://www.horizonlabs.mx"
+	},
+	{
 		"name": "The Photo",
 		"thumbnail": "assets/img/thephoto.jpg",
 		"icons": ["html5","css3","wordpress"],
@@ -21,24 +42,10 @@
 		"link": "https://turismosibarita.com"
 	},
 	{
-		"name": "Horizon Labs",
-		"thumbnail": "assets/img/horizonlabs.jpg",
-		"icons": ["html5","css3","wordpress"],
-		"other": ["Bootstrap v4","Javascript","jQuery","AJAX","PHP"],
-		"link": "http://www.horizonlabs.mx"
-	},
-	{
 		"name": "Sibarita Networks",
 		"thumbnail": "assets/img/sibaritanetworks.jpg",
 		"icons": ["html5","css3","wordpress"],
 		"other": ["Bootstrap","Javascript","jQuery","AJAX","PHP","Google Maps"],
 		"link": "https://sibaritanetworks.com"
-	},
-	{
-		"name": "Recipes (Angular JS)",
-		"thumbnail": "assets/img/angular.jpg",
-		"icons": ["git","github"],
-		"other": ["Javascript","Angular JS"],
-		"link": "https://github.com/brunonavarrete/Project-9-Recipe-Angular-SPA"
 	}
 ]
